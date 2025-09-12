@@ -8,9 +8,44 @@ document.getElementById("registrationbtn").addEventListener("click", function() 
 });
 
 document.getElementById("loginSubmit").addEventListener("click", function(){
+    let email = document.getElementById("emaillog").value;
+    let pwd = document.getElementById("pwdlog").value;
     
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    if (pwd === ""){
+        alert("Password cannot be empty!");
+        return;
+    }
+
+    alert("Login was successful!")
 });
 
 document.getElementById("registrationSubmit").addEventListener("click", function(){
+    let email = document.getElementById("emailreg").value;
+    let pwd = document.getElementById("pwdreg").value;
+    let pwdAgain = document.getElementById("pwdAgain").value;
 
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address!");
+        return;
+    }
+
+    if (pwd === ""){
+        alert("Password cannot be empty!");
+        return;
+    }
+    else if(pwd !== pwdAgain){
+        alert("The two passwords do not match!")
+        return;
+    }
+
+    alert("Registration was successful!")
 });
